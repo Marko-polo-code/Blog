@@ -8,6 +8,10 @@ class BlogPostsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path, alert: "Blog post not found"
   end
+
+  def new
+    @blog_post = BlogPost.new
+  end
 end
 
 ###
