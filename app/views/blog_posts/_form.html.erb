@@ -1,0 +1,25 @@
+<%= form_with model: @blog_post do |form| %>
+
+  <% if form.object.errors.any? %>
+    <div>
+      <h2>Form is invalid</h2>
+      <ul>
+        <% form.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
