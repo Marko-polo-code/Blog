@@ -4,6 +4,7 @@ before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @blog_posts = user_signed_in? ? BlogPost.most_recent : BlogPost.published.most_recent
+    @pagy, @blog_posts = pagy(BlogPost.all)
   end
 
   def show
