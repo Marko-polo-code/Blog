@@ -5,6 +5,8 @@ before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   def index
     @blog_posts = user_signed_in? ? BlogPost.most_recent : BlogPost.published.most_recent
     @pagy, @blog_posts = pagy(BlogPost.all)
+  rescue Pagy::OverflowError
+    redirect_to root_path(page: params[:page].to_i.pred, q: params[:q])
   end
 
   def show
