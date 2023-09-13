@@ -1,6 +1,7 @@
+<%= link_to 'back', @blog_post %>
+
 <h1>Edit the blog post</h1>
 
 <%= render 'form', blog_post: @blog_post %>
 
 <%= button_to 'Delete', @blog_post, method: :delete, data: {turbo_confirm: 'Are you sure?'} %>
-<%= link_to 'back', @blog_post %>
