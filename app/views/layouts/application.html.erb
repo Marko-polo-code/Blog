@@ -11,11 +11,21 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="prose mx-auto">
+  <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <div>
+    <div class="banner">
+      <video autoplay muted loop playsinline>
+        <source src="app/assets/videos/cloud.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <img src="app/assets/images/mark.png" class="avatar-large" alt="avatar-large">
+
+    <div class="prose mx-auto">
+
       <% if user_signed_in? %>
         <%= link_to "New Blog Post", new_blog_post_path %>
         <%# <%= link_to "Profile", edit_user_registration_path %>
@@ -25,7 +35,7 @@
         <%# <%= link_to "Sign in", new_user_session_path %>
         <%# <%= link_to "Sign up", new_user_registration_path %>
       <% end %>
-    </div>
     <%= yield %>
+    </div>
   </body>
 </html>
